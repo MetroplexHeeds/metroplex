@@ -72,7 +72,7 @@ async def clear(ctx, amount: int):
         await ctx.channel.send("Eradicated harams")
         await ctx.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
     
-bot.run('MTA1MTg1OTAzNDE5OTgxODI2MA.GUxw1y.wVV83HcAW2j7ncwG9ThkzSNX1waDSMah6wapHo')
+bot.run("MTA1MTg1OTAzNDE5OTgxODI2MA.GNXA1q.tZTHl1QDOiOOOTsbavdwr0Flrd7GlXLR3NLo7g")
 
 
 
