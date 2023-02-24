@@ -17,21 +17,6 @@ async def on_message(message):
     if "wendys" in dudu:
         await message.channel.send("WHEN DEEZNUTS ARE GONNA FIT YA MOUTH")
         await message.channel.send('https://tenor.com/view/i-show-speed-speed-shake-now-suck-that-sucking-gif-24039341')
-    if "!monkmode" in dudu[0]:
-        if "enable" in dudu[1]:
-            role1 = discord.utils.get(message.guild.roles, name="monk mode")
-            role2 = discord.utils.get(message.guild.roles, name="Verified")
-            await message.author.add_roles(role1)
-            await message.authoer.remove_roles(role2)
-            await message.channel.send("Monk mode enabled")
-        elif "disable" in dudu[1]:
-            role1 = discord.utils.get(message.guild.roles, name="monk mode")
-            role2 = discord.utils.get(message.guild.roles, name="Verified")
-            await message.author.remove_roles(role1)
-            await message.author.add_roles(role2)
-            await message.channel.send("Monk mode disabled")
-        else:
-            await message.channel.send("Please give proper command stupid")
     if message.author.id == message.guild.owner.id:
         if '!exile' == dudu[0]:
             user = message.mentions[0]
