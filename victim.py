@@ -7,15 +7,12 @@ tasks = {}
 async def on_message(message):
     await bot.process_commands(message)
     dudu = message.content.lower().split()
-    if "metroplex" in dudu and message.content not in ['Metroplex heeds the call of the last prime!',"https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764"]:
+    if "metroplex" in dudu and message.author.bot == false:
         await message.channel.send('Metroplex heeds the call of the last prime!')
         await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
     if "du" in dudu:
         await message.channel.send("https://tenor.com/view/kinggwilliamss-licking-lips-gif-24417239")
     if "high" in dudu:
-        await message.channel.send('https://tenor.com/view/i-show-speed-speed-shake-now-suck-that-sucking-gif-24039341')
-    if "wendys" in dudu:
-        await message.channel.send("WHEN DEEZNUTS ARE GONNA FIT YA MOUTH")
         await message.channel.send('https://tenor.com/view/i-show-speed-speed-shake-now-suck-that-sucking-gif-24039341')
     if message.author.id == message.guild.owner.id:
         if '!exile' == dudu[0]:
