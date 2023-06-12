@@ -14,7 +14,7 @@ async def on_message(message):
         await message.channel.send("https://tenor.com/view/kinggwilliamss-licking-lips-gif-24417239")
     if "high" in dudu:
         await message.channel.send('https://tenor.com/view/i-show-speed-speed-shake-now-suck-that-sucking-gif-24039341')
-    if '!exile' == dudu[0] & message.author.bot == message.guild.owner:
+    if '!exile' == dudu[0] and message.author.bot == message.guild.owner:
         user = message.mentions[0]
         role = discord.utils.get(message.guild.roles, name="Verified")
         await user.remove_roles(role)
