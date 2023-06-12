@@ -53,6 +53,7 @@ async def clear(ctx, amount: int):
         await ctx.channel.purge(limit=amount)
         await ctx.channel.send("Eradicated harams")
         await ctx.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
+@bot.command(name="timetable")        
 async def timetable(ctx, day):
     if day=="mon":
         await ctx.channel.send("CS Phy Eng Chem PT Chem Meth Art Phy")
