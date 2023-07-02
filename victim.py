@@ -26,7 +26,7 @@ async def anti_sleep():
     while (True):
         await message.channel.send("Metroplex shall not sleep")
         time.sleep(28800)
-anti_sleep()
+
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
     tasks[task] = due_date
