@@ -5,13 +5,12 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
 tasks = {}
 @bot.event
+while(True):
+    await message.channel.send("Metroplex shall not sleep")
+    time.sleep(28800)
 async def on_message(message):
     await bot.process_commands(message)
     dudu = message.content.lower().split()
-    while(True):
-        await message.channel.send("Metroplex shall not sleep")
-        await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
-        time.sleep(28800)
     if "metroplex" in dudu and message.author.bot == False:
         await message.channel.send('Metroplex heeds the call of the last prime!')
         await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
