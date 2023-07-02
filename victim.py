@@ -5,9 +5,7 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
 tasks = {}
 @bot.event
-while (True):
-    await message.channel.send("Metroplex shall not sleep")
-    time.sleep(28800)
+
 async def on_message(message):
     await bot.process_commands(message)
     dudu = message.content.lower().split()
@@ -24,8 +22,10 @@ async def on_message(message):
         await user.remove_roles(role)
         await message.channel.send("Exiled")
         await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
-            
-
+async def anti_sleep():
+    while (True):
+        await message.channel.send("Metroplex shall not sleep")
+        time.sleep(28800)
 
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
