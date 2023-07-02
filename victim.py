@@ -5,7 +5,7 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
 tasks = {}
 @bot.event
-while(True):
+while (True):
     await message.channel.send("Metroplex shall not sleep")
     time.sleep(28800)
 async def on_message(message):
