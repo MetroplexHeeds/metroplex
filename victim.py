@@ -29,7 +29,9 @@ async def on_message(message):
     if dudu.startswith("!kys"):
         user_mention = message.content.split(" ")[1]
         user = discord.utils.get(message.guild.members, mention=user_mention)
-        await message.channel.send("You should kill yourself now"+" "+"<@" + str(user.id) + ">")
+        s="You should kill yourself now " + "<@" + str(user.id) + ">"
+        await message.channel.send(s)
+        
         await message.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
 async def anti_sleep():
     while (True):
