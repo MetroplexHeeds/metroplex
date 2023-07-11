@@ -20,13 +20,13 @@ async def on_message(message):
         await message.channel.send("https://media.discordapp.net/attachments/994823243628286026/1103230139833253898/you_can_call_me_lalo.gif")
     if "roberto" in dudu:
         await message.channel.send("https://media.discordapp.net/attachments/1001823457861971979/1087991719791968266/ezgif.com-optimize_2.gif")
-    if '!exile' == dudu[0] and message.author == message.guild.owner:
+    if 'exile' == dudu[0] and message.author == message.guild.owner:
         user = message.mentions[0]
         role = discord.utils.get(message.guild.roles, name="Verified")
         await user.remove_roles(role)
         await message.channel.send("Exiled")
         await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
-    if dudu[0]=="!kys":
+    if dudu[0]=="kys":
         user_mention = message.content.split(" ")[1]
         user = discord.utils.get(message.guild.members, mention=user_mention)
         s="You should kill yourself now " + "<@" + str(user.id) + ">"
@@ -83,7 +83,6 @@ async def timetable(ctx, day):
     else:
         await ctx.channel.send("Dei moodheri invalid day")
         await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
-
 bot.run("MTA1MTg1OTAzNDE5OTgxODI2MA.G-97E8.w1ZIKxl9581NLK_y9LZYyi7CVLOsF7ZEOQ8Y70")
 
 
