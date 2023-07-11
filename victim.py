@@ -26,6 +26,11 @@ async def on_message(message):
         await user.remove_roles(role)
         await message.channel.send("Exiled")
         await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
+    if dudu.startswith("!kys"):
+        user_mention = message.content.split(" ")[1]
+        user = discord.utils.get(message.guild.members, mention=user_mention)
+        await message.channel.send("You should kill yourself now"+" "+"<@" + str(user.id) + ">")
+        await message.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
 async def anti_sleep():
     while (True):
         await message.channel.send("Metroplex shall not sleep")
@@ -76,10 +81,7 @@ async def timetable(ctx, day):
     else:
         await ctx.channel.send("Dei moodheri invalid day")
         await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
-@bot.command(name="kys")
-async def killyourself(ctx, target):
-    await ctx.channel.send("You should kill yourself now"+" "+ "<@"+ str(message.mentions[0]) + ">")
-    await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
+
 bot.run("MTA1MTg1OTAzNDE5OTgxODI2MA.G-97E8.w1ZIKxl9581NLK_y9LZYyi7CVLOsF7ZEOQ8Y70")
 
 
