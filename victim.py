@@ -26,7 +26,7 @@ async def on_message(message):
         await user.remove_roles(role)
         await message.channel.send("Exiled")
         await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
-    if dudu.startswith("!kys"):
+    if dudu[0]=="!kys":
         user_mention = message.content.split(" ")[1]
         user = discord.utils.get(message.guild.members, mention=user_mention)
         s="You should kill yourself now " + "<@" + str(user.id) + ">"
