@@ -78,7 +78,7 @@ async def timetable(ctx, day):
         await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
 @bot.command(name="kys")
 async def killyourself(ctx):
-    await ctx.channel.send("You should kill yourself now", format(ctx.message.author.id))
+    await ctx.channel.send("You should kill yourself now"+" "+ctx.message.author.mention)
     await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
 bot.run("MTA1MTg1OTAzNDE5OTgxODI2MA.G-97E8.w1ZIKxl9581NLK_y9LZYyi7CVLOsF7ZEOQ8Y70")
 
