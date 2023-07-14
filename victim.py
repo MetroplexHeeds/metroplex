@@ -53,18 +53,33 @@ async def clear(ctx, amount: int):
         await ctx.channel.send("Eradicated harams")
         await ctx.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
 @bot.command(name="kys")
-async def kys(self, ctx, target):
-    user = await ctx.guild.fetch_member(target)
-    await ctx.channel.send(f"You should kill yourself now {user.mention}")
+async def kys(ctx, target):
+    target = int(target.strip("<@!>"))
+            
+    member = ctx.guild.get_member(target)
+    await ctx.channel.send(f"You should kill yourself now {member.mention}")
     await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
 @bot.command(name="exile")
- async def exile(self, ctx, person_id):   
+async def exile(ctx, person_id):   
     if ctx.author.id == ctx.guild.owner_id:
-        user = await ctx.guild.fetch_member(person_id)
+        person_id = int(person_id.strip("<@!>"))
+            
+        member = ctx.guild.get_member(person_id)
         verified_role = discord.utils.get(ctx.guild.roles, name="Verified")
-        await user.remove_roles(verified_role)
-        await ctx.send("Exiled")
+        await member.remove_roles(verified_role)
+        await ctx.channel.send("Exiled")
         await ctx.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
+@bot.command(name="unexile")
+async def unexile(ctx, target):
+    if ctx.author.id == ctx.guild.owner_id:
+        target = int(target.strip("<@!>"))
+            
+        member = ctx.guild.get_member(target)
+        verified_role = discord.utils.get(ctx.guild.roles, name="Verified")
+        await member.add_roles(verified_role)
+        await ctx.channel.send("Unexiled")
+        await ctx.channel.send("https://tenor.com/view/kinggwilliamss-licking-lips-gif-24417239")
+    
     
 @bot.command(name="timetable")        
 async def timetable(ctx, day):
