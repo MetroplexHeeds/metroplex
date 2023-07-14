@@ -20,23 +20,7 @@ async def on_message(message):
         await message.channel.send("https://media.discordapp.net/attachments/994823243628286026/1103230139833253898/you_can_call_me_lalo.gif")
     if "roberto" in dudu:
         await message.channel.send("https://media.discordapp.net/attachments/1001823457861971979/1087991719791968266/ezgif.com-optimize_2.gif")
-    if '!exile' == dudu[0] and message.author == message.guild.owner:
-        user = message.mentions[0]
-        role = discord.utils.get(message.guild.roles, name="Verified")
-        await user.remove_roles(role)
-        await message.channel.send("Exiled")
-        await message.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
-    if dudu[0]=="kys":
-        user_mention = message.content.split(" ")[1]
-        user = discord.utils.get(message.guild.members, mention=user_mention)
-        s="You should kill yourself now " + "<@" + str(user.id) + ">"
-        await message.channel.send(s)
         
-        await message.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
-async def anti_sleep():
-    while (True):
-        await message.channel.send("Metroplex shall not sleep")
-        time.sleep(28800)
 
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
@@ -68,6 +52,20 @@ async def clear(ctx, amount: int):
         await ctx.channel.purge(limit=amount)
         await ctx.channel.send("Eradicated harams")
         await ctx.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
+@bot.command(name="kys")
+async def kys(self, ctx, target):
+    user = await ctx.guild.fetch_member(target)
+    await ctx.channel.send(f"You should kill yourself now {user.mention}")
+    await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
+@bot.command(name="exile")
+ async def exile(self, ctx, person_id):   
+    if ctx.author.id == ctx.guild.owner_id:
+        user = await ctx.guild.fetch_member(person_id)
+        verified_role = discord.utils.get(ctx.guild.roles, name="Verified")
+        await user.remove_roles(verified_role)
+        await ctx.send("Exiled")
+        await ctx.channel.send("https://tenor.com/view/metroplex-transformers-war-for-cybertron-gif-18216764")
+    
 @bot.command(name="timetable")        
 async def timetable(ctx, day):
     if day=="mon":
