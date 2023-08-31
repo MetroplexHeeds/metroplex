@@ -5,7 +5,7 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 tasks = {}
 @bot.event
 async def on_connect():
-    if len(bot.guilds) > 1:
+    if len(bot.guilds) > 2:
         print('Bot is already running in another server. Exiting...')
         await bot.close()
     
