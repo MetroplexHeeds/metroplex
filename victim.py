@@ -8,22 +8,6 @@ async def on_connect():
     if len(bot.guilds) > 1:
         print('Bot is already running in another server. Exiting...')
         await bot.close()
-def keep_bot_active():
-    while True:
-        bot.run('YOUR_BOT_TOKEN')
-
-# Streamlit app
-def main():
-    # Start the bot in a separate thread
-    bot_thread = threading.Thread(target=keep_bot_active)
-    bot_thread.start()
-
-    # Streamlit UI
-    st.title('Discord Bot')
-    st.write('Bot is active and running!')
-
-if __name__ == '__main__':
-    main()
     
 async def on_message(message):
     await bot.process_commands(message)
