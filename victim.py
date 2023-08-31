@@ -21,6 +21,7 @@ async def on_message(message):
         if "roberto" in dudu:
             await message.channel.send("https://media.discordapp.net/attachments/1001823457861971979/1087991719791968266/ezgif.com-optimize_2.gif")
     except:
+        print('fail')
 
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
@@ -98,6 +99,7 @@ async def timetable(ctx, day):
             await ctx.channel.send("Dei moodheri invalid day")
             await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
     except:
+        print('fail')
 bot.run("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
 
 
