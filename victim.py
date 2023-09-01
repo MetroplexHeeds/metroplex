@@ -4,9 +4,7 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),owner_id=725
 
 tasks = {}
 @bot.event
-async def on_ready():
-    channel = bot.get_channel(994823243628286026)  # Replace CHANNEL_ID with the desired channel ID
-    await channel.send('I am reborn')
+
     
 async def on_message(message):
     await bot.process_commands(message)
@@ -26,13 +24,12 @@ async def on_message(message):
     except:
         print('fail')
         
-@bot.command(name='restart')
+@bot.command(name='stop')
 @commands.is_owner()
-async def restart(ctx):
-    await ctx.send("Restarting bot and client...")
+async def stop(ctx):
+    await ctx.send("Bad metro bad plex")
     await bot.close()
-    await client.start("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
-    await bot.start("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
+
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
     tasks[task] = due_date
