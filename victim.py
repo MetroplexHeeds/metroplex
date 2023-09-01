@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
+bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),owner_id=725900576889765988)
 
 tasks = {}
 @bot.event
