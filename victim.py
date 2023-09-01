@@ -4,12 +4,7 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
 
 tasks = {}
 @bot.event
-async def on_connect():
-    if len(bot.guilds) > 2:
-        print('Bot is already running in another server. Exiting...')
-        await bot.close()
-        await bot.login("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
-        await bot.connect()
+
     
 async def on_message(message):
     await bot.process_commands(message)
@@ -28,7 +23,14 @@ async def on_message(message):
             await message.channel.send("https://media.discordapp.net/attachments/1001823457861971979/1087991719791968266/ezgif.com-optimize_2.gif")
     except:
         print('fail')
-
+        
+@bot.command()
+@commands.is_owner()
+async def restart(ctx):
+    await ctx.send("Restarting bot and client...")
+    await bot.close()
+    await bot.login("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
+    await bot.connect()
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
     tasks[task] = due_date
