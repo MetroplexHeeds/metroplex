@@ -32,7 +32,7 @@ async def restart(ctx):
     await ctx.send("Restarting bot and client...")
     await bot.close()
     await client.start("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
-    await bot.connect()
+    await bot.start("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
     tasks[task] = due_date
