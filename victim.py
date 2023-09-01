@@ -24,7 +24,7 @@ async def on_message(message):
     except:
         print('fail')
         
-@bot.command()
+@bot.command(name='restart')
 @commands.is_owner()
 async def restart(ctx):
     await ctx.send("Restarting bot and client...")
