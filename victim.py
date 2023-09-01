@@ -4,7 +4,9 @@ bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),owner_id=725
 
 tasks = {}
 @bot.event
-
+async def on_ready():
+    channel = bot.get_channel(994823243628286026)  # Replace CHANNEL_ID with the desired channel ID
+    await channel.send('I am reborn')
     
 async def on_message(message):
     await bot.process_commands(message)
