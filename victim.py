@@ -8,6 +8,8 @@ async def on_connect():
     if len(bot.guilds) > 2:
         print('Bot is already running in another server. Exiting...')
         await bot.close()
+        await bot.login("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
+        await bot.connect()
     
 async def on_message(message):
     await bot.process_commands(message)
