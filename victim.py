@@ -31,7 +31,7 @@ async def on_message(message):
 async def restart(ctx):
     await ctx.send("Restarting bot and client...")
     await bot.close()
-    await bot.login("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
+    await client.start("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
     await bot.connect()
 @bot.command(name="add")
 async def add_task(ctx, task, due_date):
