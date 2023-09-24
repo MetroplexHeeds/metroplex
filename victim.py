@@ -1,10 +1,15 @@
 import discord
+import streamlit as st
 from discord.ext import commands
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),owner_id=725900576889765988)
-
+logincount = 0
 tasks = {}
 @bot.event
-
+async def on_ready():
+    global logincount
+    logincount += 1
+    if logincount > 1 and client.gateway._is_logged_in:
+        st.rerun()
     
 async def on_message(message):
     await bot.process_commands(message)
