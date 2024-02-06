@@ -1,9 +1,19 @@
 import discord
-import streamlit as st
+import streamlit as st 
+import time
 from discord.ext import commands
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all(),owner_id=725900576889765988)
 logincount = 0
 tasks = {}
+def keep_app_alive():
+    while True:
+        st.session_state.last_activity = time.time()  # Update last activity timestamp
+        time.sleep(60)  # Check every 60 seconds
+
+# Start a thread to run the keep_app_alive function in the background
+import threading
+thread = threading.Thread(target=keep_app_alive)
+thread.start()
 @bot.event
 async def on_ready():
     global logincount
