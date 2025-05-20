@@ -1,24 +1,22 @@
-import os # Import os to access environment variables
+import os
 import discord
-import streamlit as st
+import streamlit as st # Import streamlit
 import time
-import threading # Keep threading for the keep_app_alive function if you intend to use it with Streamlit
+import threading
 from discord.ext import commands
 
 # --- Configuration ---
-# It's highly recommended to use environment variables for your token
-# Replace "YOUR_DISCORD_BOT_TOKEN" with the name of your environment variable
-# Example: export DISCORD_BOT_TOKEN="YOUR_ACTUAL_TOKEN_HERE" (in your terminal)
-TOKEN = os.getenv("DISCORD_BOT_TOKEN")
-if TOKEN is None:
-    print("Error: DISCORD_BOT_TOKEN environment variable not set.")
-    print("Please set the environment variable before running the bot.")
-    # In a production environment, you might want to exit here
-    # exit(1)
-    # For this example, we'll use the hardcoded token if env var is not set
-    # BUT THIS IS NOT RECOMMENDED FOR PRODUCTION
-    print("Warning: Falling back to hardcoded token (NOT RECOMMENDED).")
-    TOKEN = "MTA1MTExOTg5ODgzMjY2NjY2NQ.GHXqMZ.tWGpV0IT0eA8BLh6GcJj-pIlb1lIMz9f4cUfuA" # Replace with your actual token if not using env var
+# Use Streamlit's Secrets Management to get the token securely
+# Create a .streamlit/secrets.toml file in your app's directory
+# with the content:
+# DISCORD_BOT_TOKEN = "YOUR_ACTUAL_TOKEN_HERE"
+# Make sure this file is NOT committed to public version control.
+try:
+    TOKEN = st.secrets["DISCORD_BOT_TOKEN"]
+except KeyError:
+    st.error("Discord bot token not found in Streamlit secrets.")
+    st.info("Please add `DISCORD_BOT_TOKEN = 'YOUR_ACTUAL_TOKEN_HERE'` to your `.streamlit/secrets.toml` file.")
+    st.stop() # Stop the Streamlit app if the token is not found
 
 # Define intents - specify what events your bot needs to receive
 # discord.Intents.all() is used here as in your original code, but consider
@@ -235,7 +233,7 @@ async def kys(ctx, target: discord.Member):
     except discord.errors.Forbidden:
         print(f"Error: Bot does not have permissions to send messages in channel {ctx.channel.id}")
     except Exception as e:
-        print(f"An error occurred sending kys message: {e}")
+            print(f"An error occurred sending kys message: {e}")
 
 # Command to remove the "Verified" role (only for guild owner)
 @bot.command(name="exile")
@@ -306,7 +304,8 @@ async def timetable(ctx, day: str):
         except Exception as e:
             print(f"An error occurred sending invalid day message: {e}")
 
+
 # --- Run the Bot ---
 # This should be the last line in your script.
-# Use the TOKEN variable.
+# Use the TOKEN variable obtained from st.secrets.
 bot.run(TOKEN)
