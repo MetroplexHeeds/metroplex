@@ -122,7 +122,7 @@ async def timetable(ctx, day):
             await ctx.channel.send("https://media.discordapp.net/attachments/923098562701692959/1117822314164277418/kys.png?width=523&height=339")
     except:
         print('fail')
-bot.run("MTA1MTg1OTAzNDE5OTgxODI2MA.GqFMWq.P8Am4tM5FOpQn2RD--KX9ERCczPAacPCO0sqFE")
+bot.run("MTA1MTExOTg5ODgzMjY2NjY2NQ.GHXqMZ.tWGpV0IT0eA8BLh6GcJj-pIlb1lIMz9f4cUfuA")
 
 
 
